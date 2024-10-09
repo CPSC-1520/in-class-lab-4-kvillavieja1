@@ -1,6 +1,53 @@
 
 // Enter your code below.
+let newForm = document.querySelector("#new-order-form");
 
+newForm.addEventListener("submit", (event)=> {
+  event.preventDefault();
+  let orderItemName = event.target.elements["order-item-name"].value;
+  let orderItemPrice = event.target.elements["order-item-price"].value;
+  let orderSize = event.target.elements["order-size"].value;
+
+  addOrderItem(orderItemName, orderItemPrice, orderSize);
+
+  event.target.elements["order-item-name"].value = "";
+  event.target.elements["order-item-price"].value = "";
+  event.target.elements["order-size"].value = "";
+
+  let isFormValid = addOrderItem;
+  isFormValid = true;
+  let errorMsg = '';
+
+  if (orderItemName == isValueNotEmpty)
+  {
+    orderItemName.classList.remove('.invalid-feedback');
+  }
+  else {
+    orderItemName.classList.add('.invalid-feedback');
+    errorMsg = 'Please enter a valid item.';
+    isFormValid = false;
+  }
+
+  if ((orderItemPrice == isValueNotEmpty) && (orderItemPrice == isGreaterThanFive))
+  {
+    orderItemPrice.classList.remove('.invalid-feedback');
+  }
+  else {
+    orderItemPrice.classList.add('.invalid-feedback');
+    errorMsg = 'Please enter a valid item.';
+    isFormValid = false;
+  }
+  
+  if (orderSize == isValueNotEmpty)
+  {
+    orderSize.classList.remove('.invalid-feedback');
+  }
+  else {
+    orderSize.classList.add('.invalid-feedback');
+    isFormValid = false;
+  }
+
+})
 
 // functions needed for assessment (do not change.)
 
